@@ -1,8 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Pokemon : MonoBehaviour
-{
+public class Pokemon : MonoBehaviour {
     // Не разделяю точку зрения разделения view и model (каламбур типа)
     public Health Health;
     public Animator Animator;
