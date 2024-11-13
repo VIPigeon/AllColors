@@ -19,6 +19,7 @@ public class Fight : MonoBehaviour {
     public Transform PlayerPokemonSpawnPoint;
 
     public FightState State;
+    public FullDeck FullPlayerDeck;
     public Hand PlayerHand;
 
     public Pokemon playerPokemon;
@@ -27,8 +28,9 @@ public class Fight : MonoBehaviour {
     private void Start() {
         State = FightState.WaitingForPlayerToSpawnHisFirstPokemon;
 
-        foreach (Card card in PlayerHand.Cards) {
-            card.Clicked += OnCardPlayed;
+        PlayerHand.FillFrom(FullPlayerDeck);
+        foreach (CardView cardView in PlayerHand.CardViews) {
+            cardView.Clicked += OnCardPlayed;
         }
     }
 
@@ -78,13 +80,19 @@ public class Fight : MonoBehaviour {
         State = FightState.EnemyTurn;
     }
 
-    private void OnCardPlayed(Card card) {
-        card.Clicked -= OnCardPlayed;
+    private void OnCardPlayed(CardView cardView) {
+        Card card = cardView.CardThatWeCurrentlyDisplay;
+
         // Должно быть не здесь, но уже 22 часа ночи, а я в поезде второй час
         // программирую (или 3-ий), короче немного устал, сами потом почините
         // или подумайте как это сделать лучше 😜
-        PlayerHand.Cards.Remove(card);
-        Destroy(card.gameObject);
+        //
+        // Уже 23 часа ночи, и я это починил. Оставлю здесь ради истории.
+        //
+        // Сейчас полночь, что-то мне не очень нравится передавать сюда вьюшку,
+        // но с другой стороны мне пофиг. Мы же на джем игру делаем. Да и вообще,
+        // хочу процедурный код писать. Эххх... 😛
+        PlayerHand.PlayCard(cardView);
 
         if (card.Pokemon == null) {
             Debug.LogError("Спеллы ещё не сделаны");
