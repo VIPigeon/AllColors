@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueWithSpawn : Dialogue
+public class DialogueWithSpawn : DialogueInteraction
 {
     [SerializeField] private GameObject _whatToActivate;
 

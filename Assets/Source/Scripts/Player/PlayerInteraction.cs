@@ -8,7 +8,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private float _interactionRange;
     [SerializeField] private GameObject _interactionPrompt;
 
-    public event Action<bool, string> DialogueInteraction;
+    public event Action<bool, DialogueLine> DialogueInteraction;
 
     private Interactable _closestInteractable;
 
@@ -54,13 +54,13 @@ public class PlayerInteraction : MonoBehaviour
     private void OnIntreractInput()
     {
         if (_closestInteractable)
-            if (_closestInteractable.TryGetComponent(out Dialogue dialogue))
+            if (_closestInteractable.TryGetComponent(out DialogueInteraction dialogue))
                 DoDialogueInteraction(dialogue);
     }
 
     public void ForceInteract() => OnIntreractInput();
 
-    private void DoDialogueInteraction(Dialogue dialogue)
+    private void DoDialogueInteraction(DialogueInteraction dialogue)
     {
         dialogue.OnInteract();
         DialogueInteraction?.Invoke(dialogue.InDialogue, dialogue.GetCurrentDialogue());

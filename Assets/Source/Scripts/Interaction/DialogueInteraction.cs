@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dialogue : Interactable
+public class DialogueInteraction : Interactable
 {
-    [field: SerializeField] public string[] DialogueLines { get; private set; }
+    [field: SerializeField] public DialogueLine[] DialogueLines { get; private set; }
     public bool InDialogue { get; private set; }
     protected int _currentDialogue = 0;
 
@@ -28,5 +28,5 @@ public class Dialogue : Interactable
         }
     }
 
-    public string GetCurrentDialogue() => DialogueLines[_currentDialogue];
+    public DialogueLine GetCurrentDialogue() => DialogueLines[_currentDialogue];
 }

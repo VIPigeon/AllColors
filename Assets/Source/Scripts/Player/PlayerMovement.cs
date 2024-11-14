@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
             _rigidbody.velocity = moveVector.normalized * _speed;
     }
 
-    private void OnDialogueInteraction(bool state, string text)
+    private void OnDialogueInteraction(bool state, DialogueLine dialogue)
     {
         _canMove = !state;
     }
