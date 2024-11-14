@@ -8,8 +8,8 @@ public class InputInitializer : Singleton<InputInitializer>
 {
     private Controls _controls;
 
-    public Action<Vector2> MovementInput;
-    public Action InteractInput;
+    public event Action<Vector2> MovementInput;
+    public event Action InteractInput;
 
     private void OnEnable()
     {

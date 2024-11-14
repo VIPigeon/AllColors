@@ -18,6 +18,12 @@ public class PlayerMovement : MonoBehaviour
         //TODO Unsubscribe from events
     }
 
+    private void OnDisable()
+    {
+        if(!Singleton.Quitting)
+            InputInitializer.Instance.MovementInput -= OnMovementInput;
+    }
+
     private void OnMovementInput(Vector2 moveVector)
     {
         //TODO Change velocity in FixedUpdate
