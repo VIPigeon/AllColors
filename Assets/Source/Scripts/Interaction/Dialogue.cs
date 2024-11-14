@@ -6,7 +6,7 @@ public class Dialogue : Interactable
 {
     [field: SerializeField] public string[] DialogueLines { get; private set; }
     public bool InDialogue { get; private set; }
-    private int _currentDialogue = 0;
+    protected int _currentDialogue = 0;
 
     private void Start()
     {

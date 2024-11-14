@@ -58,6 +58,8 @@ public class PlayerInteraction : MonoBehaviour
                 DoDialogueInteraction(dialogue);
     }
 
+    public void ForceInteract() => OnIntreractInput();
+
     private void DoDialogueInteraction(Dialogue dialogue)
     {
         dialogue.OnInteract();
