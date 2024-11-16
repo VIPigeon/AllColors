@@ -76,26 +76,30 @@ public class Fight : MonoBehaviour {
                 break;
         }
     }
-    
-    private void SwapEnemyPokemon(Pokemon newPokemon) {
-        switch (State) {
-            case FightState.WaitingForEnemyToSpawnPokemon:
-                EnemyPokemon = newPokemon;
-                break;
-            case FightState.EnemyTurn:
-                Enemy.ReturnCard(EnemyPokemon.Card);
-                Destroy(EnemyPokemon.gameObject);
-                EnemyPokemon = newPokemon;
-                break;
-            default:
-                Debug.LogError($"Плохой стейт: {State}");
-                break;
-        }
-    }
 
     private void OnPlayerCardPlayed(Card card) {
         if (card.Config.Type.IsSpell()) {
-            Debug.LogError("Спеллы ещё не сделаны");
+            switch (card.Config.Type) {
+                case CardType.Hellfire:
+                    EnemyPokemon.TakeDamage(5, card);
+                    break;
+                case CardType.Snow:
+                    EnemyPokemon.AddEffect(EffectType.Snow, 2);
+                    break;
+                case CardType.Depression:
+                    EnemyPokemon.AddEffect(EffectType.Depression, 1);
+                    break;
+                case CardType.Radioactive:
+                    EnemyPokemon.AddEffect(EffectType.Poisoned, 3);
+                    break;
+                case CardType.PurpleHeart:
+                    PlayerPokemon.Card.CurrentHealth.Restore();
+                    break;
+                default:
+                    Debug.LogError($"Хрень {card.Config.Type}");
+                    break;
+            }
+            SwitchTurnToEnemy();
         } else {
             Pokemon pokemon = Instantiate(card.Config.Pokemon, FightArea.transform);
             pokemon.Construct(card);
@@ -105,23 +109,39 @@ public class Fight : MonoBehaviour {
     }
     
     public void PlayerPressedTheAttackButton() {
-        if (State != FightState.PlayerTurn) {
-            Debug.LogError("Атаковать сейчас нельзя.");
-            return;
-        }
-
         EnemyPokemon.ReadyToAttack += OnEnemyReadyToAttack;
         PlayerPokemon.Attack(EnemyPokemon);
         PlayerHand.Refill();
+        SwitchTurnToEnemy();
+    }
+    
+    public void SwitchTurnToPlayer() {
+        if (EnemyPokemon != null) {
+            EnemyPokemon.EndTurn();
+        }
+        if (PlayerPokemon != null) {
+            PlayerPokemon.BeginTurn();
+        }
         
-        if (EnemyPokemon.Card.CurrentHealth.IsZero) {
-            State = FightState.WaitingForEnemyToSpawnPokemon;
+        if (PlayerPokemon.Card.CurrentHealth.IsZero) {
+            State = FightState.WaitingForPlayerToSpawnHisFirstPokemon;
         } else {
-            State = FightState.EnemyTurn;
+            State = FightState.PlayerTurn;
         }
     }
     
+    public void OnEnemyReadyToAttack(Pokemon enemy) {
+        EnemyPokemon.ReadyToAttack -= OnEnemyReadyToAttack;
+        DoEnemyTurn();
+        SwitchTurnToPlayer();
+    }
+    
     private void DoEnemyTurn() {
+        if (EnemyPokemon != null && EnemyPokemon.HasEffect(EffectType.Depression)) {
+            SwitchTurnToPlayer();
+            return;
+        }
+        
         EnemyTurn turn = Enemy.DoTurn(EnemyPokemon, PlayerPokemon);
         switch (turn.Type) {
             case EnemyTurnType.Attack:
@@ -148,13 +168,34 @@ public class Fight : MonoBehaviour {
         }
     }
     
-    public void OnEnemyReadyToAttack(Pokemon enemy) {
-        EnemyPokemon.ReadyToAttack -= OnEnemyReadyToAttack;
-        DoEnemyTurn();
-        if (PlayerPokemon.Card.CurrentHealth.IsZero) {
-            State = FightState.WaitingForPlayerToSpawnHisFirstPokemon;
+    private void SwapEnemyPokemon(Pokemon newPokemon) {
+        switch (State) {
+            case FightState.WaitingForEnemyToSpawnPokemon:
+                EnemyPokemon = newPokemon;
+                break;
+            case FightState.EnemyTurn:
+                Enemy.ReturnCard(EnemyPokemon.Card);
+                Destroy(EnemyPokemon.gameObject);
+                EnemyPokemon = newPokemon;
+                break;
+            default:
+                Debug.LogError($"Плохой стейт: {State}");
+                break;
+        }
+    }
+    
+    public void SwitchTurnToEnemy() {
+        if (PlayerPokemon != null) {
+            PlayerPokemon.EndTurn();
+        }
+        if (EnemyPokemon != null) {
+            EnemyPokemon.BeginTurn();
+        }
+        
+        if (EnemyPokemon == null || EnemyPokemon.Card.CurrentHealth.IsZero) {
+            State = FightState.WaitingForEnemyToSpawnPokemon;
         } else {
-            State = FightState.PlayerTurn;
+            State = FightState.EnemyTurn;
         }
     }
 }

@@ -25,6 +25,10 @@ public class Health {
         _current = maxAmount;
     }
 
+    public void Restore() {
+        Value = MaxAmount;
+    }
+
     public void Sub(int damage) {
         if (damage > Value) {
             Value = 0;
