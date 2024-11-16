@@ -1499,7 +1499,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225258274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.08, y: -0.08000004, z: 0}
+  m_LocalPosition: {x: -3.08, y: 2.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2549,7 +2549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6290194188221760313, guid: e548188754895644cbd12da8aa3b6cbe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.83
+      value: 0.61999977
       objectReference: {fileID: 0}
     - target: {fileID: 6290194188221760313, guid: e548188754895644cbd12da8aa3b6cbe, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2653,8 +2653,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9085601160740872490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.18, y: 0.58, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -5.5, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 4.02, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9085601161453781045}
@@ -2674,6 +2674,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _renderer: {fileID: 9085601161453781044}
+  _requiredColor: {r: 0.2, g: 0.8666667, b: 0.15294118, a: 1}
+  _requiredColorThreshold: 0.01
+  _whatToActivate: []
+  _whatToDeactivate:
+  - {fileID: 9085601160740872490}
 --- !u!1 &9085601161453781042
 GameObject:
   m_ObjectHideFlags: 0
