@@ -7,6 +7,7 @@ public class CardConfig : ScriptableObject {
     // В этом случае тут будет null 🐦
     public Pokemon Pokemon;
     public CardType Type;
+    public string Description = "";
     public Color Color = Color.white;
     public string Name = "Без названия";
     

@@ -327,7 +327,10 @@ MonoBehaviour:
   Cards:
   - {fileID: 11400000, guid: a8cc56af2ee81ee4a8ec71f2856f62f7, type: 2}
   - {fileID: 11400000, guid: 5e0108db50da0d64c92c4401518fb139, type: 2}
-  - {fileID: 11400000, guid: c91d2d1c6b137c54aaf54be8d014b09f, type: 2}
+  - {fileID: 11400000, guid: f80df5cdd8df3bb4c977efb1d02e778c, type: 2}
+  - {fileID: 11400000, guid: f2f6810d342bafe47a63c81813aa8d87, type: 2}
+  - {fileID: 11400000, guid: 99b4b623d9da6dd4a83688b0bbd0c2cb, type: 2}
+  - {fileID: 11400000, guid: da97c0917fe306e41918eb2eb7b2955a, type: 2}
 --- !u!4 &301429913
 Transform:
   m_ObjectHideFlags: 0

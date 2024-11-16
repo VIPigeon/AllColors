@@ -2,8 +2,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using UnityEngine.EventSystems;
 
-public class CardView : MonoBehaviour {
+public class CardView : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
+    public delegate void DescriptionOnHandler(string text);
+    public event DescriptionOnHandler DescriptionOn;
+
+    public delegate void DescriptionOffHandler();
+    public event DescriptionOffHandler DescriptionOff;
+
     public TextMeshProUGUI Text;
     public GameObject CardObject;
     public event Action<CardView> Played;
@@ -36,5 +43,14 @@ public class CardView : MonoBehaviour {
             return;
         }
         Played?.Invoke(this);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData) {
+        // Debug.Log("on pointer enter");
+        DescriptionOn?.Invoke(CardThatWeCurrentlyDisplay.Config.Description);
+    }
+
+    public void OnPointerExit(PointerEventData eventData) {
+        DescriptionOff?.Invoke();
     }
 }
