@@ -24,9 +24,13 @@ public class ColorPickerCard : DraggableCard
 
 
         Color color = tex.GetPixelBilinear(texturePosition.x, texturePosition.y);
-        Debug.Log(color);
         transform.SetParent(_grid);
 
         GetComponent<Image>().color = color;
+        Card card = FindObjectOfType<ColorPickerDeck>().ClosestCardToColor(color);
+        FindObjectOfType<DeckUI>().AddCardToGrid(card);
+        FullDeck.Instance.Cards.Add(card);
+        FullDeck.Instance.Cards.Remove(_card);
+        Destroy(gameObject);
     }
 }

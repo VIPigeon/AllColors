@@ -18,7 +18,7 @@ public class DeckUI : MonoBehaviour
             AddCardToGrid(card);
     }
 
-    private void AddCardToGrid(Card card)
+    public void AddCardToGrid(Card card)
     {
         GameObject cardInstance;
         if(card.name == "ColorPicker")
