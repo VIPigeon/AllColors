@@ -7,29 +7,23 @@ public class HandAndDeckOfCards {
     public int MaxCardsInHand;
     
     public HandAndDeckOfCards(FullDeck fullDeck, int maxCardsInHand) {
-        Deck = new List<Card>();
-        Hand = new List<Card>();
-        MaxCardsInHand = maxCardsInHand;
-        
-        foreach (CardConfig cardConfig in fullDeck.Cards) {
-            Deck.Add(new Card(cardConfig));
-        }
-        
-        Shuffle(Deck);
-        
-        for (int i = 0; i < MaxCardsInHand; i++) {
-            Hand.Add(DrawOneCardFromDeck());
-        }
+        Construct(fullDeck.Cards, maxCardsInHand);
     }
     
     // Кринж.. 😶 Синглтон момент (можно было чуть-чуть получше сделать, но все равно хрень была бы)
     public HandAndDeckOfCards(FullDeckForOthers fullDeck, int maxCardsInHand) {
+        Construct(fullDeck.Cards, maxCardsInHand);
+    }
+    
+    private void Construct(List<CardConfig> cards, int maxCardsInHand) {
         Deck = new List<Card>();
         Hand = new List<Card>();
         MaxCardsInHand = maxCardsInHand;
         
-        foreach (CardConfig cardConfig in fullDeck.Cards) {
-            Deck.Add(new Card(cardConfig));
+        foreach (CardConfig cardConfig in cards) {
+            if (cardConfig.Name != "Пипетка") {
+                Deck.Add(new Card(cardConfig));
+            }
         }
         
         Shuffle(Deck);
