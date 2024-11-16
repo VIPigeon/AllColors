@@ -15,13 +15,15 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         InputInitializer.Instance.MovementInput += OnMovementInput;
         _interaction.DialogueInteraction += OnDialogueInteraction;
-        //TODO Unsubscribe from events
     }
 
     private void OnDisable()
     {
-        if(!Singleton.Quitting)
+        if (!Singleton.Quitting)
+        {
             InputInitializer.Instance.MovementInput -= OnMovementInput;
+            _interaction.DialogueInteraction -= OnDialogueInteraction;
+        }
     }
 
     private void OnMovementInput(Vector2 moveVector)
