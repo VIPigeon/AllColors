@@ -14,7 +14,6 @@ public class Paintable : MonoBehaviour
     public void ApplyCard(Card card)
     {
         _renderer.color = card.Color;
-        Debug.Log(FindObjectOfType<ColorPickerDeck>().ColorDistance(_requiredColor, card.Color));
         if (FindObjectOfType<ColorPickerDeck>().ColorDistance(_requiredColor, card.Color) < _requiredColorThreshold)
         {
             DoEffect();
