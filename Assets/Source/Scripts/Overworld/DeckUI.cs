@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class DeckUI : MonoBehaviour
 {
     [SerializeField] private GameObject _cardPrefab;
+    [SerializeField] private GameObject _colorPickerPrefab;
     [SerializeField] private Transform _deckGrid;
     private FullDeck _deck;
 
@@ -19,8 +20,14 @@ public class DeckUI : MonoBehaviour
 
     private void AddCardToGrid(Card card)
     {
-        GameObject cardInstance = Instantiate(_cardPrefab);
+        GameObject cardInstance;
+        if(card.name == "ColorPicker")
+            cardInstance = Instantiate(_colorPickerPrefab);
+        else
+            cardInstance = Instantiate(_cardPrefab);
+
         cardInstance.transform.SetParent(_deckGrid);
-        cardInstance.GetComponent<Image>().color = card.Color;
+
+        cardInstance.GetComponent<DraggableCard>().SetCard(card);
     }
 }

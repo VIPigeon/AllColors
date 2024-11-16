@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2318374326738100293}
   - component: {fileID: 2318374326738100291}
   - component: {fileID: 2318374326738100290}
-  - component: {fileID: 6455534638343609651}
+  - component: {fileID: 5987803747954803857}
   m_Layer: 0
-  m_Name: Card
+  m_Name: ColorPiclerCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 33e72f106ffda114d921687d73ae82fa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 052ea470536649f41bedf930d34bcc8f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6455534638343609651
+--- !u!114 &5987803747954803857
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,10 +86,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2318374326738100292}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d96daea42c4455c489b3c11ec03eeef3, type: 3}
+  m_Script: {fileID: 11500000, guid: 16e1d72100be2a84a8a9cbd7d7a42976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _grid: {fileID: 0}
   _canvas: {fileID: 0}
   _card: {fileID: 0}
-  _overlapRadius: 10
+  _overlapRadius: 3
