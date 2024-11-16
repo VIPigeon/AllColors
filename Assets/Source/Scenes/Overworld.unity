@@ -1317,6 +1317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interaction: {fileID: 1212258111}
   _panel: {fileID: 444030260}
+  _deck: {fileID: 1418291600}
   _wobbleEffect: {fileID: 444030264}
   _dialogueText: {fileID: 988812425}
 --- !u!1 &1212258106
