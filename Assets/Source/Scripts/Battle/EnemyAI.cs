@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class EnemyAI : MonoBehaviour {
     public List<EnemyCardView> CardViews;
     public FullDeckForOthers FullDeck;
+    public CharacterID CharacterID;
     
     public HandAndDeckOfCards Hand;
     public bool OutOfCards { get; private set; }

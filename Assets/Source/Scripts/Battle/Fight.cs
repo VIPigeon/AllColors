@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 // Есть баги: игрок можеть нажимать на атаку / играть карты когда угодно.
 // Нужно ограничить игрока ❌🗽
@@ -52,9 +53,7 @@ public class Fight : MonoBehaviour {
         
         if ((PlayerPokemon == null || PlayerPokemon.Card.CurrentHealth.IsZero) && PlayerHand.OutOfCards) {
             Debug.Log("Игрок проиграл ахахах");
-        }
-        if ((EnemyPokemon == null || EnemyPokemon.Card.CurrentHealth.IsZero) && Enemy.OutOfCards) {
-            Debug.Log("Враг проиграл. Круто?");
+            SceneManager.LoadScene("Overworld");
         }
     }
 
@@ -139,7 +138,9 @@ public class Fight : MonoBehaviour {
                 }
                 break;
             case EnemyTurnType.GiveUp:
-                Debug.Log("Игрок победил в бою. Круто?");
+                Debug.Log($"Враг {Enemy.CharacterID} проиграл. Круто?");
+                Singleton<NPCState>.Instance.States[Enemy.CharacterID] = CharacterState.Defeated;
+                SceneManager.LoadScene("Overworld");
                 break;
             default:
                 Debug.LogError($"Не умею обрабатывать ход {turn.Type}!");

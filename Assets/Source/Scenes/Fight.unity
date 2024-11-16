@@ -1516,6 +1516,7 @@ MonoBehaviour:
   - {fileID: 946490253}
   - {fileID: 4005367860306616544}
   FullDeck: {fileID: 963843419}
+  CharacterID: 1
 --- !u!1 &1352338170
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,9 @@ public class NPCState : Singleton<NPCState>
     {
         if (States == null)
             States = new Dictionary<CharacterID, CharacterState>();
+        foreach (CharacterID character in Enum.GetValues(typeof(CharacterID))) {
+            States[character] = CharacterState.Normal;
+        }
     }
 }
 

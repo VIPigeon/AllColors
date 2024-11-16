@@ -15,6 +15,6 @@ MonoBehaviour:
   Pokemon: {fileID: 8861076501592709967, guid: 3a9ee9464e6d6fc41b8169c3bee71b49, type: 3}
   Type: 5
   Color: {r: 0.7176471, g: 0.105882354, b: 0.4282368, a: 1}
-  Name: "\u0411\u0435\u043B\u043A\u0430"
+  Name: "\u0418\u041C\u0411\u0410"
   InitialHealth: 30
   InitialDamage: 30
