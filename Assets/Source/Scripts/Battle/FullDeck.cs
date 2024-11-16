@@ -2,5 +2,5 @@ using UnityEngine;
 using System.Collections.Generic;
 
 public class FullDeck : Singleton<FullDeck> {
-    public List<Card> Cards;
+    public List<CardConfig> Cards;
 }

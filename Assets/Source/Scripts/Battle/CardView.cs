@@ -5,8 +5,10 @@ using System;
 
 public class CardView : MonoBehaviour {
     public TextMeshProUGUI Text;
-    public event Action<CardView> Clicked;
-
+    public GameObject CardObject;
+    public event Action<CardView> Played;
+    public bool InteractionsDisabled;
+    
     // Вообще это плохо. То есть должен быть чувак сверху,
     // который смотрит за вьюхами и за моделями и оркестрирует
     // ивентами. Но мне лень его писать, скоро спать надо. И
@@ -16,13 +18,23 @@ public class CardView : MonoBehaviour {
     // чувака сверху и всё стало норм. Правда, ООП все ещё отстой.
     public Card CardThatWeCurrentlyDisplay;
 
+    // card может быть null. А как же иначе?
     public void Show(Card card) {
-        Text.color = card.Color;
-        Text.text = card.Name;
+        if (card == null) {
+            CardObject.SetActive(false);
+            return;
+        }
+        
+        CardObject.SetActive(true);
+        Text.color = card.Config.Color;
+        Text.text = card.Config.Name;
         CardThatWeCurrentlyDisplay = card;
     }
-
+    
     public void OnClick() {
-        Clicked?.Invoke(this);
+        if (InteractionsDisabled) {
+            return;
+        }
+        Played?.Invoke(this);
     }
 }

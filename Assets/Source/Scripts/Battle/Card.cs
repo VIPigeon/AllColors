@@ -1,11 +1,11 @@
-using System;
-using UnityEngine;
-
-[CreateAssetMenu(menuName = "Pokemon Card", fileName = "Pokemon_Card")]
-public class Card : ScriptableObject {
-    // Внимание! У некоторых карт (например, у крови) покемона нет.
-    // В этом случае тут будет null 🐦
-    public Pokemon Pokemon;
-    public Color Color = Color.white;
-    public string Name = "Без названия";
+public class Card {
+    public Health CurrentHealth;
+    public int CurrentDamage;
+    public CardConfig Config;
+    
+    public Card(CardConfig config) {
+        Config = config;
+        CurrentHealth = new Health(config.InitialHealth);
+        CurrentDamage = config.InitialDamage;
+    }
 }

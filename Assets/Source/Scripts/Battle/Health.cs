@@ -1,10 +1,8 @@
-using UnityEngine;
-using UnityEngine.UI;
+using System;
 
-public class Health : MonoBehaviour {
-    public int MaxAmount;
-    public Slider Healthbar;
-    
+public class Health {
+    public readonly int MaxAmount;
+   
     private int _current;
 
     public int Value {
@@ -13,26 +11,25 @@ public class Health : MonoBehaviour {
         }
         set {
             if (!(0 <= value && value <= MaxAmount)) {
-                Debug.LogError($"Bad health value {value}");
+                throw new ArgumentException($"Bad health value {value}");
             }
 
             _current = value;
-            ShowOnHealthbar();
         }
     }
 
     public bool IsZero => Value == 0;
 
-    private void Start() {
-        _current = MaxAmount;
-        ShowOnHealthbar();
+    public Health(int maxAmount) {
+        MaxAmount = maxAmount;
+        _current = maxAmount;
     }
 
     public void Sub(int damage) {
-        Value = Mathf.Max(Value - damage, 0);
-    }
-
-    private void ShowOnHealthbar() {
-        Healthbar.value = (float)_current / (float)MaxAmount;
+        if (damage > Value) {
+            Value = 0;
+        } else {
+            Value = Value - damage;
+        }
     }
 }
