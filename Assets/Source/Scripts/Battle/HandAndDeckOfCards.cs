@@ -22,6 +22,23 @@ public class HandAndDeckOfCards {
         }
     }
     
+    // Кринж.. 😶 Синглтон момент (можно было чуть-чуть получше сделать, но все равно хрень была бы)
+    public HandAndDeckOfCards(FullDeckForOthers fullDeck, int maxCardsInHand) {
+        Deck = new List<Card>();
+        Hand = new List<Card>();
+        MaxCardsInHand = maxCardsInHand;
+        
+        foreach (CardConfig cardConfig in fullDeck.Cards) {
+            Deck.Add(new Card(cardConfig));
+        }
+        
+        Shuffle(Deck);
+        
+        for (int i = 0; i < MaxCardsInHand; i++) {
+            Hand.Add(DrawOneCardFromDeck());
+        }
+    }
+    
     public void RefillHand() {
         for (int i = 0; i < MaxCardsInHand; i++) {
             if (Hand[i] == null) {

@@ -11,7 +11,7 @@ public class Paintable : MonoBehaviour
     [SerializeField] private GameObject[] _whatToActivate;
     [SerializeField] private GameObject[] _whatToDeactivate;
 
-    public void ApplyCard(Card card)
+    public void ApplyCard(CardConfig card)
     {
         _renderer.color = card.Color;
         if (FindObjectOfType<ColorPickerDeck>().ColorDistance(_requiredColor, card.Color) < _requiredColorThreshold)

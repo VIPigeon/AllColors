@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 public class EnemyAI : MonoBehaviour {
     public List<EnemyCardView> CardViews;
-    public FullDeck FullDeck;
+    public FullDeckForOthers FullDeck;
     
     public HandAndDeckOfCards Hand;
     public bool OutOfCards { get; private set; }
     
-    private void Start() {
+    private void Awake() {
         Hand = new HandAndDeckOfCards(FullDeck, FullDeck.Cards.Count);
     }
     

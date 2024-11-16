@@ -288,10 +288,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cards:
-  - {fileID: 11400000, guid: baba40711361f2a3a8fde497e4f5fd38, type: 2}
-  - {fileID: 11400000, guid: 1a23382572582a22cbd7990d6d005029, type: 2}
-  - {fileID: 11400000, guid: 916745ce47789736bb86ed3eff45bdfd, type: 2}
-  - {fileID: 11400000, guid: dbce72bc64cd7198ebca51b44bad3fe5, type: 2}
+  - {fileID: 11400000, guid: a8cc56af2ee81ee4a8ec71f2856f62f7, type: 2}
+  - {fileID: 11400000, guid: f2f6810d342bafe47a63c81813aa8d87, type: 2}
+  - {fileID: 11400000, guid: da97c0917fe306e41918eb2eb7b2955a, type: 2}
+  - {fileID: 11400000, guid: 42d8d89f1a55f744fb475e0d687fcfe6, type: 2}
+  - {fileID: 11400000, guid: 99b4b623d9da6dd4a83688b0bbd0c2cb, type: 2}
+  - {fileID: 11400000, guid: f80df5cdd8df3bb4c977efb1d02e778c, type: 2}
 --- !u!1 &301429911
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,11 +325,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _persistent: 1
   Cards:
-  - {fileID: 11400000, guid: baba40711361f2a3a8fde497e4f5fd38, type: 2}
-  - {fileID: 11400000, guid: 1a23382572582a22cbd7990d6d005029, type: 2}
-  - {fileID: 11400000, guid: 916745ce47789736bb86ed3eff45bdfd, type: 2}
-  - {fileID: 11400000, guid: dbce72bc64cd7198ebca51b44bad3fe5, type: 2}
-  - {fileID: 11400000, guid: bd15026782fb310489d7bcaf37e16d29, type: 2}
+  - {fileID: 11400000, guid: a8cc56af2ee81ee4a8ec71f2856f62f7, type: 2}
+  - {fileID: 11400000, guid: 5e0108db50da0d64c92c4401518fb139, type: 2}
 --- !u!4 &301429913
 Transform:
   m_ObjectHideFlags: 0

@@ -15,7 +15,6 @@ public class Fight : MonoBehaviour {
     public Transform EnemyPokemonSpawnPoint;
 
     public FightState State;
-    public FullDeck FullPlayerDeck;
     public PlayerHandInBattle PlayerHand;
     public EnemyAI Enemy;
 
@@ -29,7 +28,7 @@ public class Fight : MonoBehaviour {
         State = FightState.WaitingForEnemyToSpawnPokemon;
         DoEnemyTurn();
         State = FightState.WaitingForPlayerToSpawnHisFirstPokemon;
-        PlayerHand.Construct(FullPlayerDeck);
+        PlayerHand.Construct(Singleton<FullDeck>.Instance);
     }
     
     private void OnEnable() {

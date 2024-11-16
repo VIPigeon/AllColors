@@ -27,7 +27,7 @@ public class ColorPickerCard : DraggableCard
         transform.SetParent(_grid);
 
         GetComponent<Image>().color = color;
-        Card card = FindObjectOfType<ColorPickerDeck>().ClosestCardToColor(color);
+        CardConfig card = FindObjectOfType<ColorPickerDeck>().ClosestCardToColor(color);
         FindObjectOfType<DeckUI>().AddCardToGrid(card);
         FullDeck.Instance.Cards.Add(card);
         FullDeck.Instance.Cards.Remove(_card);

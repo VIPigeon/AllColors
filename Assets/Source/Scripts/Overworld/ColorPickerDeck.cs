@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ColorPickerDeck : MonoBehaviour
 {
-    public List<Card> Cards;
+    public List<CardConfig> Cards;
 
-    public Card ClosestCardToColor(Color color)
+    public CardConfig ClosestCardToColor(Color color)
     {
         float minColorDistance = float.PositiveInfinity;
-        Card result = null;
-        foreach(Card card in Cards)
+        CardConfig result = null;
+        foreach(CardConfig card in Cards)
         {
             if(minColorDistance >= ColorDistance(card.Color, color))
             {

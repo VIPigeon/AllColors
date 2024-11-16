@@ -14,14 +14,14 @@ public class DeckUI : MonoBehaviour
     private void Start()
     {
         _deck = FullDeck.Instance;
-        foreach (Card card in _deck.Cards)
+        foreach (CardConfig card in _deck.Cards)
             AddCardToGrid(card);
     }
 
-    public void AddCardToGrid(Card card)
+    public void AddCardToGrid(CardConfig card)
     {
         GameObject cardInstance;
-        if(card.name == "ColorPicker")
+        if(card.name == "Config_Card_ColorPicker")
             cardInstance = Instantiate(_colorPickerPrefab);
         else
             cardInstance = Instantiate(_cardPrefab);

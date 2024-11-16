@@ -8,7 +8,7 @@ public class DraggableCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 {
     [SerializeField] protected Transform _grid;
     [SerializeField] protected Transform _canvas;
-    [SerializeField] protected Card _card;
+    [SerializeField] protected CardConfig _card;
     [SerializeField] protected float _overlapRadius;
 
     private void Start()
@@ -17,7 +17,7 @@ public class DraggableCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         _canvas = GetComponentInParent<Canvas>().transform;
     }
 
-    public void SetCard(Card card)
+    public void SetCard(CardConfig card)
     {
         _card = card;
         GetComponent<Image>().color = card.Color;
