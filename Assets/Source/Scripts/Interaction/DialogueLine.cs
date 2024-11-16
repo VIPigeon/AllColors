@@ -8,4 +8,5 @@ public class DialogueLine : MonoBehaviour
     public string Text;
     public Color TextColor;
     public bool IsWobbly;
+    public Sprite Portrait;
 }
