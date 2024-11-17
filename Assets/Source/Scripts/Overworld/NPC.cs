@@ -11,8 +11,8 @@ public class NPC : MonoBehaviour
 
     private void Start()
     {
-        if (!NPCState.Instance.States.ContainsKey(_id))
-            NPCState.Instance.States.Add(_id, CharacterState.Normal);
+        if (!NPCStates.Instance.States.ContainsKey(_id))
+            NPCStates.Instance.States.Add(_id, CharacterState.Normal);
         ApplyState();
     }
 
@@ -21,7 +21,7 @@ public class NPC : MonoBehaviour
         _normalState.SetActive(false);
         _defeatedState.SetActive(false);
 
-        switch (NPCState.Instance.States[_id])
+        switch (NPCStates.Instance.States[_id])
         {
             case CharacterState.Normal:
                 _normalState.SetActive(true);

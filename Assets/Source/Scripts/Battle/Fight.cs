@@ -159,7 +159,7 @@ public class Fight : MonoBehaviour {
                 break;
             case EnemyTurnType.GiveUp:
                 Debug.Log($"Враг {Enemy.CharacterID} проиграл. Круто?");
-                Singleton<NPCState>.Instance.States[Enemy.CharacterID] = CharacterState.Defeated;
+                Singleton<NPCStates>.Instance.States[Enemy.CharacterID] = CharacterState.Defeated;
                 SceneManager.LoadScene("Overworld");
                 break;
             default:
