@@ -82,6 +82,11 @@ public class Pokemon : MonoBehaviour {
             double damageBonus = ColorInfo.DamageBonuses[cardThatDamagedMe.Config.ColorType][Card.Config.ColorType];
             damage = (int)((double)damage * damageBonus);
         }
+        UpdateEffects();
+        
+        if (damage <= 0) {
+            return;
+        }
         
         Card.CurrentHealth.Sub(damage);
         HealthView.Show(Card.CurrentHealth);
@@ -90,7 +95,6 @@ public class Pokemon : MonoBehaviour {
         if (Card.CurrentHealth.IsZero) {
             Die();
         }
-        UpdateEffects();
     }
 
     public void Die() {

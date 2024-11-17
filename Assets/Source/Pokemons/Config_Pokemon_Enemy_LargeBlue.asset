@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c224264039d99e4d950db9fc3844ed7, type: 3}
   m_Name: Config_Pokemon_Enemy_LargeBlue
   m_EditorClassIdentifier: 
-  Pokemon: {fileID: 4831117023108020395, guid: d9cec101662767241beef5fbcf115cc1, type: 3}
+  Pokemon: {fileID: 4831117023108020395, guid: ccc688dba98cbba4ab9af472b89bd100, type: 3}
   Type: 1
   Description: 
   Color: {r: 0.16078432, g: 0.16078432, b: 0.6862745, a: 1}
