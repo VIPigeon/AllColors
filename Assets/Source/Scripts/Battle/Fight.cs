@@ -70,7 +70,7 @@ public class Fight : MonoBehaviour {
         
         if (EnemyPokemon.Card.CurrentHealth.IsZero) {        
             Debug.Log($"Враг {Enemy.CharacterID} проиграл. Круто?");
-            Singleton<NPCState>.Instance.States[Enemy.CharacterID] = CharacterState.Defeated;
+            Singleton<NPCStates>.Instance.States[Enemy.CharacterID] = CharacterState.Defeated;
             SceneManager.LoadScene("Overworld");
         }
         
