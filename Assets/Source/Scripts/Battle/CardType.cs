@@ -18,4 +18,6 @@ public enum CardType {
     Depression, // 😿
     Radioactive,
     PurpleHeart,
+    GreenLight,
+    Stone,
 }

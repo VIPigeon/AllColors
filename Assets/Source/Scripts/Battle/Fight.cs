@@ -33,6 +33,7 @@ public class Fight : MonoBehaviour {
     public TextMeshProUGUI PlayerPokemonName;
     public TextMeshProUGUI Bonus2Text;
     public Image PlayerPokemonColor;
+    public Image Podlozhka;
 
     private void Start() {
         Card enemyFirstCard = Enemy.FirstTurn();    
@@ -88,6 +89,7 @@ public class Fight : MonoBehaviour {
             PlayerPokemonName.text = PlayerPokemon.Card.Config.Name;
             PlayerPokemonColor.color = PlayerPokemon.Card.Config.Color;
         }
+        Podlozhka.color = PlayerPokemonColor.color;
         
         double bonus1 = 0.0;
         double bonus2 = 0.0;
@@ -151,9 +153,16 @@ public class Fight : MonoBehaviour {
                     EnemyPokemon.AddEffect(EffectType.Poisoned, 3);
                     break;
                 case CardType.PurpleHeart:
-                    Debug.Log("Hi");
                     PlayerPokemon.Card.CurrentHealth.Restore();
                     PlayerPokemon.HealthView.Show(PlayerPokemon.Card.CurrentHealth);
+                    break;
+                case CardType.GreenLight:
+                    if (PlayerPokemon.Card.Config.Type == CardType.SchoolBus) {
+                        EnemyPokemon.TakeDamage(7, card);
+                    }
+                    break;
+                case CardType.Stone:
+                    EnemyPokemon.TakeDamage(4, null);
                     break;
                 default:
                     Debug.LogError($"Хрень {card.Config.Type}");
@@ -180,7 +189,7 @@ public class Fight : MonoBehaviour {
         }
 
         foreach (var card in PlayerHand.Hand.Hand) {
-            if (card.Config.Type == CardType.LovestruckToad) {
+            if (card != null && card.Config.Type == CardType.LovestruckToad) {
                 card.CurrentHealth.Value = Math.Min(card.CurrentHealth.Value + (int)1.6, card.CurrentHealth.MaxAmount);
             }
         }

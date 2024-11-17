@@ -9,7 +9,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1187882802504374263, guid: 3a9ee9464e6d6fc41b8169c3bee71b49, type: 3}
       propertyPath: m_Name
-      value: Pokemon_FaintedFrog
+      value: Pokemon_FaintedFrog Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779639425042536085, guid: 3a9ee9464e6d6fc41b8169c3bee71b49, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 333.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779639425042536085, guid: 3a9ee9464e6d6fc41b8169c3bee71b49, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 57.1555
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779639425042536085, guid: 3a9ee9464e6d6fc41b8169c3bee71b49, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -33.071
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779639425042536085, guid: 3a9ee9464e6d6fc41b8169c3bee71b49, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -80.6571
       objectReference: {fileID: 0}
     - target: {fileID: 4699591631097487968, guid: 3a9ee9464e6d6fc41b8169c3bee71b49, type: 3}
       propertyPath: m_Sprite

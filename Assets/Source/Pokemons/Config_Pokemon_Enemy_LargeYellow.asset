@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c224264039d99e4d950db9fc3844ed7, type: 3}
+  m_Name: Config_Pokemon_Enemy_LargeYellow
+  m_EditorClassIdentifier: 
+  Pokemon: {fileID: 4831117023108020395, guid: 3d0d6d2a9f69cbf4280cd4bdd922f2f8, type: 3}
+  Type: 1
+  Description: 
+  Color: {r: 1, g: 0.9328047, b: 0.12641507, a: 1}
+  ColorType: 2
+  Name: "\u0416\u0435\u043B\u0442\u0430\u044F \u043C\u0430\u0441\u0441\u0430"
+  InitialHealth: 40
+  InitialDamage: 4

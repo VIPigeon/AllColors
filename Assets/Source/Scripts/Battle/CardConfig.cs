@@ -13,7 +13,7 @@ public class CardConfig : ScriptableObject {
     public ColorType ColorType = ColorType.Red;
     public string Name = "Без названия";
     
-    [Range(1, 30)]
+    [Range(1, 100)]
     public int InitialHealth = 3;
     [Range(0, 30)]
     public int InitialDamage = 2;

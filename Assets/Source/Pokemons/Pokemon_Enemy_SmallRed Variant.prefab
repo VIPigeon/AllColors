@@ -11,6 +11,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pokemon_Enemy_SmallRed Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2779639425042536085, guid: 3a9ee9464e6d6fc41b8169c3bee71b49, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 142.5665
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779639425042536085, guid: 3a9ee9464e6d6fc41b8169c3bee71b49, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 35.8445
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779639425042536085, guid: 3a9ee9464e6d6fc41b8169c3bee71b49, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779639425042536085, guid: 3a9ee9464e6d6fc41b8169c3bee71b49, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -102
+      objectReference: {fileID: 0}
     - target: {fileID: 4699591631097487968, guid: 3a9ee9464e6d6fc41b8169c3bee71b49, type: 3}
       propertyPath: m_Sprite
       value: 

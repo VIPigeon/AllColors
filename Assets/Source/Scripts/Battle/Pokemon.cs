@@ -10,6 +10,10 @@ public class Pokemon : MonoBehaviour {
     public Animator Animator;
     public Card Card;
 
+    public GameObject SnowEffect;
+    public GameObject SadnessEffect;
+    public GameObject PoisonEffect;
+    
     public List<Effect> ActiveEffects;
     public event Action<Pokemon> ReadyToAttack;
 
@@ -18,6 +22,7 @@ public class Pokemon : MonoBehaviour {
         HealthView.SetColor(card.Config.Color);
         HealthView.Show(card.CurrentHealth);
         ActiveEffects = new List<Effect>();
+        UpdateEffects();
     }
 
     public void BeginTurn() {
@@ -39,6 +44,7 @@ public class Pokemon : MonoBehaviour {
         foreach (Effect effect in effectsToBeDestroyed) {
             ActiveEffects.Remove(effect);
         }
+        UpdateEffects();
     }
 
     public bool HasEffect(EffectType effectType) {
@@ -55,11 +61,17 @@ public class Pokemon : MonoBehaviour {
             Type = effectType,
             TurnsLeft = turns,
         });
+        UpdateEffects();
     }
 
     // Кто захочет атаковать сам себя, будет иметь дело со мной 😠
     public void Attack(Pokemon otherPokemon) {
-        otherPokemon.TakeDamage(Card.CurrentDamage, Card);
+        int damageDealt = Card.CurrentDamage;
+        if (HasEffect(EffectType.Snow)) {
+            damageDealt -= 2;
+        }
+        otherPokemon.TakeDamage(damageDealt, Card);
+        UpdateEffects();
     }
 
     public void TakeDamage(int damage, Card cardThatDamagedMe) {
@@ -78,6 +90,7 @@ public class Pokemon : MonoBehaviour {
         if (Card.CurrentHealth.IsZero) {
             Die();
         }
+        UpdateEffects();
     }
 
     public void Die() {
@@ -95,5 +108,23 @@ public class Pokemon : MonoBehaviour {
     public void OnDeathAnimationFinished(AnimationEvent ev) {
         ReadyToAttack?.Invoke(this);
         Destroy(gameObject);
+    }
+    
+    private void UpdateEffects() {
+        SnowEffect.SetActive(false);
+        PoisonEffect.SetActive(false);
+        SadnessEffect.SetActive(false);
+        
+        for (int i = 0; i < ActiveEffects.Count; i++) {
+            if (ActiveEffects[i].Type == EffectType.Depression) {
+                SadnessEffect.SetActive(true);
+            }
+            if (ActiveEffects[i].Type == EffectType.Poisoned) {
+                PoisonEffect.SetActive(true);
+            }
+            if (ActiveEffects[i].Type == EffectType.Snow) {
+                SnowEffect.SetActive(true);
+            }
+        }
     }
 }

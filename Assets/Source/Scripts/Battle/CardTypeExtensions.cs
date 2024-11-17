@@ -28,6 +28,8 @@ public static class CardTypeExtensions {
             case CardType.Depression:
             case CardType.Radioactive:
             case CardType.PurpleHeart:
+            case CardType.GreenLight:
+            case CardType.Stone:
                 return true;
             default:
                 return false;
