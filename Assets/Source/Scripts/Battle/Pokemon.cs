@@ -68,7 +68,6 @@ public class Pokemon : MonoBehaviour {
                 AddEffect(EffectType.Poisoned, 2);
             }
             double damageBonus = ColorInfo.DamageBonuses[cardThatDamagedMe.Config.ColorType][Card.Config.ColorType];
-            Debug.Log($"Bonus from {cardThatDamagedMe.Config.ColorType} -> {Card.Config.ColorType} = {damageBonus}");
             damage = (int)((double)damage * damageBonus);
         }
         

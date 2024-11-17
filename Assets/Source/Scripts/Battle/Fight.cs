@@ -151,7 +151,9 @@ public class Fight : MonoBehaviour {
                     EnemyPokemon.AddEffect(EffectType.Poisoned, 3);
                     break;
                 case CardType.PurpleHeart:
+                    Debug.Log("Hi");
                     PlayerPokemon.Card.CurrentHealth.Restore();
+                    PlayerPokemon.HealthView.Show(PlayerPokemon.Card.CurrentHealth);
                     break;
                 default:
                     Debug.LogError($"Хрень {card.Config.Type}");

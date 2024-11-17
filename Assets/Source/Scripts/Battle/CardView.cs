@@ -17,6 +17,9 @@ public class CardView : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public event Action<CardView> Played;
     public bool InteractionsDisabled;
     
+    private Vector3 _offset;
+    private Vector3 _initialPosition;
+    
     // Вообще это плохо. То есть должен быть чувак сверху,
     // который смотрит за вьюхами и за моделями и оркестрирует
     // ивентами. Но мне лень его писать, скоро спать надо. И
@@ -50,15 +53,40 @@ public class CardView : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if (InteractionsDisabled) {
             return;
         }
-        Played?.Invoke(this);
+        //Played?.Invoke(this);
     }
 
     public void OnPointerEnter(PointerEventData eventData) {
-        // Debug.Log("on pointer enter");
         DescriptionOn?.Invoke(CardThatWeCurrentlyDisplay.Config.Description);
     }
 
     public void OnPointerExit(PointerEventData eventData) {
         DescriptionOff?.Invoke();
+    }
+    
+    public void OnBeginDrag() {
+        if (InteractionsDisabled) {
+            return;
+        }
+        _offset = transform.position - Input.mousePosition;
+        _initialPosition = transform.position;
+    }
+    
+    public void OnDrag() {
+        if (InteractionsDisabled) {
+            return;
+        }
+        transform.position = _offset + Input.mousePosition;
+    } 
+
+    public void OnEndDrag() {
+        if (InteractionsDisabled) {
+            return;
+        }
+        
+        if (transform.position.y > 420) {
+            Played?.Invoke(this);   
+        }
+        transform.position = _initialPosition;
     }
 }

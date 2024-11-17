@@ -1,3 +1,4 @@
+using UnityEngine;
 using System;
 
 public class Health {
@@ -26,7 +27,7 @@ public class Health {
     }
 
     public void Restore() {
-        Value = MaxAmount;
+        _current = MaxAmount;
     }
 
     public void Sub(int damage) {
