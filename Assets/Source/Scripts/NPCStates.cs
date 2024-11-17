@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCState : Singleton<NPCState>
+public class NPCStates : Singleton<NPCStates>
 {
     public Dictionary<CharacterID, CharacterState> States;
 
@@ -20,7 +20,7 @@ public class NPCState : Singleton<NPCState>
 
 public enum CharacterID
 {
-    testNPC1,
+    cave_OldMan,
     testNPC2,
     testNPC3,
 }

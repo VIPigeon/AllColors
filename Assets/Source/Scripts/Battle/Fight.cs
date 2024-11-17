@@ -231,7 +231,9 @@ public class Fight : MonoBehaviour {
                 Debug.Log($"Играю спелл {card} (нет)");
                 break;
             case EnemyTurnType.GiveUp:
-                Debug.Log("Враг сдался");
+                // Debug.Log($"Враг {Enemy.CharacterID} проиграл. Круто?");
+                // Singleton<NPCStates>.Instance.States[Enemy.CharacterID] = CharacterState.Defeated;
+                // SceneManager.LoadScene("Overworld");
                 break;
             default:
                 Debug.LogError($"Не умею обрабатывать ход {turn.Type}!");
