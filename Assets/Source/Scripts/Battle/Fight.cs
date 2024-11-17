@@ -175,6 +175,13 @@ public class Fight : MonoBehaviour {
         if (EnemyPokemon != null) {
             EnemyPokemon.EndTurn();
         }
+
+        foreach (var card in PlayerHand.Hand.Hand) {
+            if (card.Config.Type == CardType.LovestruckToad) {
+                card.CurrentHealth.Value += (int)1.6;
+            }
+        }
+        
         if (PlayerPokemon != null) {
             PlayerPokemon.BeginTurn();
         }
