@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Pokemon : MonoBehaviour {
-    public Image Image; // временно
-    
     // Не разделяю точку зрения разделения view и model
     // (каламбур типа "точка зрения" и "view" 🤣)
     public HealthView HealthView;
@@ -17,7 +15,6 @@ public class Pokemon : MonoBehaviour {
 
     public void Construct(Card card) {
         Card = card;
-        Image.color = card.Config.Color;
         HealthView.SetColor(card.Config.Color);
         HealthView.Show(card.CurrentHealth);
         ActiveEffects = new List<Effect>();
@@ -66,8 +63,13 @@ public class Pokemon : MonoBehaviour {
     }
 
     public void TakeDamage(int damage, Card cardThatDamagedMe) {
-        if (cardThatDamagedMe != null && cardThatDamagedMe.Config.Type == CardType.BlueFrog) {
-            AddEffect(EffectType.Poisoned, 2);
+        if (cardThatDamagedMe != null) {
+            if (cardThatDamagedMe.Config.Type == CardType.BlueFrog) {
+                AddEffect(EffectType.Poisoned, 2);
+            }
+            double damageBonus = ColorInfo.DamageBonuses[cardThatDamagedMe.Config.ColorType][Card.Config.ColorType];
+            Debug.Log($"Bonus from {cardThatDamagedMe.Config.ColorType} -> {Card.Config.ColorType} = {damageBonus}");
+            damage = (int)((double)damage * damageBonus);
         }
         
         Card.CurrentHealth.Sub(damage);

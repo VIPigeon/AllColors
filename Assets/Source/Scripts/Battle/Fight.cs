@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 // Есть баги: игрок можеть нажимать на атаку / играть карты когда угодно.
 // Нужно ограничить игрока ❌🗽
@@ -23,11 +24,22 @@ public class Fight : MonoBehaviour {
     public Pokemon EnemyPokemon;
     
     public Button AttackButton;
-    public Button SecondaryAttackButton; // Которая непонятно зачем
+
+    [Header("Визуальная шелуха")]
+    public TextMeshProUGUI EnemyPokemonName;
+    public TextMeshProUGUI Bonus1Text;
+    public Image EnemyPokemonColor;
+    public TextMeshProUGUI PlayerPokemonName;
+    public TextMeshProUGUI Bonus2Text;
+    public Image PlayerPokemonColor;
 
     private void Start() {
-        State = FightState.WaitingForEnemyToSpawnPokemon;
-        DoEnemyTurn();
+        Card enemyFirstCard = Enemy.FirstTurn();    
+        Pokemon pokemon = Instantiate(enemyFirstCard.Config.Pokemon, FightArea.transform);
+        pokemon.Construct(enemyFirstCard);
+        pokemon.transform.position = EnemyPokemonSpawnPoint.position;
+        EnemyPokemon = pokemon;
+        
         State = FightState.WaitingForPlayerToSpawnHisFirstPokemon;
         PlayerHand.Construct(Singleton<FullDeck>.Instance);
     }
@@ -45,15 +57,60 @@ public class Fight : MonoBehaviour {
         // JetBrains ушли из России 🤬. А как вы думаете? Так и живём. 🤐
         if (State != FightState.PlayerTurn) {
             AttackButton.interactable = false;
-            SecondaryAttackButton.interactable = false;
         } else {
             AttackButton.interactable = true;
-            SecondaryAttackButton.interactable = true;
         }
         
         if ((PlayerPokemon == null || PlayerPokemon.Card.CurrentHealth.IsZero) && PlayerHand.OutOfCards) {
             Debug.Log("Игрок проиграл ахахах");
             SceneManager.LoadScene("Overworld");
+        }
+        
+        if (EnemyPokemon.Card.CurrentHealth.IsZero) {        
+            Debug.Log($"Враг {Enemy.CharacterID} проиграл. Круто?");
+            Singleton<NPCState>.Instance.States[Enemy.CharacterID] = CharacterState.Defeated;
+            SceneManager.LoadScene("Overworld");
+        }
+        
+        if (EnemyPokemon == null || EnemyPokemon.Card.CurrentHealth.IsZero) {
+            EnemyPokemonName.text = "*мертв*";
+            EnemyPokemonColor.color = Color.gray;
+        } else {
+            EnemyPokemonName.text = EnemyPokemon.Card.Config.Name;
+            EnemyPokemonColor.color = EnemyPokemon.Card.Config.Color;
+        }
+        
+        if (PlayerPokemon == null || PlayerPokemon.Card.CurrentHealth.IsZero) {
+            PlayerPokemonName.text = "*ждем покемона*";
+            PlayerPokemonColor.color = Color.gray;
+        } else {
+            PlayerPokemonName.text = PlayerPokemon.Card.Config.Name;
+            PlayerPokemonColor.color = PlayerPokemon.Card.Config.Color;
+        }
+        
+        double bonus1 = 0.0;
+        double bonus2 = 0.0;
+        if (!(PlayerPokemon == null || PlayerPokemon.Card.CurrentHealth.IsZero) &&
+            !(EnemyPokemon == null || EnemyPokemon.Card.CurrentHealth.IsZero))
+        {
+            bonus1 = ColorInfo.DamageBonuses[EnemyPokemon.Card.Config.ColorType][PlayerPokemon.Card.Config.ColorType];
+            bonus2 = ColorInfo.DamageBonuses[PlayerPokemon.Card.Config.ColorType][EnemyPokemon.Card.Config.ColorType];
+        }
+        
+        if (bonus1 == 0) {
+            Bonus1Text.color = Color.gray;
+            Bonus1Text.text = "0";
+        } else {
+            Bonus1Text.color = Color.green;
+            Bonus1Text.text = $"x{bonus1}";
+        }
+        
+        if (bonus2 == 0) {
+            Bonus2Text.color = Color.gray;
+            Bonus2Text.text = "0";
+        } else {
+            Bonus2Text.color = Color.green;
+            Bonus2Text.text = $"x{bonus2}";
         }
     }
 
@@ -99,7 +156,6 @@ public class Fight : MonoBehaviour {
                     Debug.LogError($"Хрень {card.Config.Type}");
                     break;
             }
-            SwitchTurnToEnemy();
         } else {
             Pokemon pokemon = Instantiate(card.Config.Pokemon, FightArea.transform);
             pokemon.Construct(card);
@@ -149,37 +205,17 @@ public class Fight : MonoBehaviour {
                 break;
             case EnemyTurnType.PlayCard:
                 Card card = turn.Card;
-                Pokemon pokemon = Instantiate(card.Config.Pokemon, FightArea.transform);
-                pokemon.Construct(card);
-                pokemon.transform.position = EnemyPokemonSpawnPoint.position;
-                SwapEnemyPokemon(pokemon);
-                if (PlayerPokemon != null) {
-                    EnemyPokemon.Attack(PlayerPokemon);
+                if (!card.Config.Type.IsSpell()) {
+                    Debug.LogError("Не умею играть что-то кроме спеллов");
+                    return;
                 }
+                Debug.Log($"Играю спелл {card} (нет)");
                 break;
             case EnemyTurnType.GiveUp:
-                Debug.Log($"Враг {Enemy.CharacterID} проиграл. Круто?");
-                Singleton<NPCState>.Instance.States[Enemy.CharacterID] = CharacterState.Defeated;
-                SceneManager.LoadScene("Overworld");
+                Debug.Log("Враг сдался");
                 break;
             default:
                 Debug.LogError($"Не умею обрабатывать ход {turn.Type}!");
-                break;
-        }
-    }
-    
-    private void SwapEnemyPokemon(Pokemon newPokemon) {
-        switch (State) {
-            case FightState.WaitingForEnemyToSpawnPokemon:
-                EnemyPokemon = newPokemon;
-                break;
-            case FightState.EnemyTurn:
-                Enemy.ReturnCard(EnemyPokemon.Card);
-                Destroy(EnemyPokemon.gameObject);
-                EnemyPokemon = newPokemon;
-                break;
-            default:
-                Debug.LogError($"Плохой стейт: {State}");
                 break;
         }
     }
@@ -192,10 +228,6 @@ public class Fight : MonoBehaviour {
             EnemyPokemon.BeginTurn();
         }
         
-        if (EnemyPokemon == null || EnemyPokemon.Card.CurrentHealth.IsZero) {
-            State = FightState.WaitingForEnemyToSpawnPokemon;
-        } else {
-            State = FightState.EnemyTurn;
-        }
+        State = FightState.EnemyTurn;
     }
 }

@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c224264039d99e4d950db9fc3844ed7, type: 3}
   m_Name: Config_Pokemon_FaintedFrog
   m_EditorClassIdentifier: 
-  Pokemon: {fileID: 8861076501592709967, guid: 3a9ee9464e6d6fc41b8169c3bee71b49, type: 3}
+  Pokemon: {fileID: 459631557803824530, guid: 3749e6f2f04f4694fa83c103c151e0ef, type: 3}
   Type: 5
   Description: "\u041D\u0435 \u0430\u0442\u0430\u043A\u0443\u0435\u0442. \u0422\u043E\u043B\u044C\u043A\u043E
     \u043F\u043E\u043B\u0443\u0447\u0430\u0435\u0442 \u0443\u0440\u043E\u043D"
-  Color: {r: 0.23212884, g: 0.5943396, b: 0.24311674, a: 1}
+  Color: {r: 0.4784314, g: 0.57254905, b: 0.48627454, a: 1}
+  ColorType: 4
   Name: "\u041B\u044F\u0433\u0443\u0448\u043A\u0430 \u0432 \u043E\u0431\u043C\u043E\u0440\u043E\u043A\u0435"
   InitialHealth: 5
   InitialDamage: 0

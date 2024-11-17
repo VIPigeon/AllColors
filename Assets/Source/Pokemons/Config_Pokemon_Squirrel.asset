@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c224264039d99e4d950db9fc3844ed7, type: 3}
   m_Name: Config_Pokemon_Squirrel
   m_EditorClassIdentifier: 
-  Pokemon: {fileID: 8861076501592709967, guid: 3a9ee9464e6d6fc41b8169c3bee71b49, type: 3}
+  Pokemon: {fileID: 7651347377750339339, guid: d30737bb2574ed04484d8b4d476a4977, type: 3}
   Type: 4
   Description: "\u041C\u0430\u043B\u043E \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F,
     \u0441\u0438\u043B\u044C\u043D\u0430\u044F \u0430\u0442\u0430\u043A\u0430"
-  Color: {r: 0.7169812, g: 0.36067805, b: 0.10416517, a: 1}
+  Color: {r: 0.91372555, g: 0.69803923, b: 0.3019608, a: 1}
+  ColorType: 5
   Name: "\u0411\u0435\u043B\u043A\u0430"
   InitialHealth: 2
   InitialDamage: 4

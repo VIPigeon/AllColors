@@ -13,6 +13,26 @@ public class EnemyAI : MonoBehaviour {
         Hand = new HandAndDeckOfCards(FullDeck, FullDeck.Cards.Count);
     }
     
+    public Card FirstTurn() {
+        int pokemonIndex = -1;
+        for (int i = 0; i < Hand.Hand.Count; i++) {
+            if (Hand.Hand[i].Config.Type.IsPokemon()) {
+                if (pokemonIndex != -1) {
+                    Debug.LogError("Тревога! У врага должно быть не больше одного покемона в колоде!");
+                    return null;
+                }
+                pokemonIndex = i;
+            }
+        }
+        
+        if (pokemonIndex == -1) {
+            Debug.LogError("Тревога! У врага должен быть покемон в колоде. Это костыль, но так уж вышло!");
+            return null;
+        }
+        
+        return Hand.PlayCard(pokemonIndex);
+    }
+    
     public EnemyTurn DoTurn(Pokemon myPokemon, Pokemon otherPokemon) {
         if (myPokemon == null || myPokemon.Card.CurrentHealth.IsZero) {
             Card card = Hand.PlayRandomCard();

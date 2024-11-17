@@ -11,6 +11,7 @@ public class CardView : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public delegate void DescriptionOffHandler();
     public event DescriptionOffHandler DescriptionOff;
 
+    public HealthView Healthbar;
     public TextMeshProUGUI Text;
     public GameObject CardObject;
     public event Action<CardView> Played;
@@ -32,7 +33,14 @@ public class CardView : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             return;
         }
         
+        if (card.Config.Type.IsSpell()) {
+            Healthbar.gameObject.SetActive(false);
+        } else {
+            Healthbar.gameObject.SetActive(true);
+            Healthbar.SetColor(card.Config.Color);
+        }
         CardObject.SetActive(true);
+        Healthbar.Show(card.CurrentHealth);
         Text.color = card.Config.Color;
         Text.text = card.Config.Name;
         CardThatWeCurrentlyDisplay = card;

@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c224264039d99e4d950db9fc3844ed7, type: 3}
-  m_Name: Config_Pokemon_OP
+  m_Name: Config_Pokemon__MechTyan
   m_EditorClassIdentifier: 
   Pokemon: {fileID: 8861076501592709967, guid: 3a9ee9464e6d6fc41b8169c3bee71b49, type: 3}
-  Type: 5
-  Description: "\u0411\u0435\u0437 \u043A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0435\u0432"
-  Color: {r: 0.7176471, g: 0.105882354, b: 0.4282368, a: 1}
-  Name: "\u0418\u041C\u0411\u0410"
-  InitialHealth: 30
-  InitialDamage: 30
+  Type: 6
+  Color: {r: 0.8584906, g: 0.08422924, b: 0.08422924, a: 1}
+  Name: "\u041C\u0435\u0445\u043C\u0430\u0442-\u0422\u044F\u043D"
+  InitialHealth: 4
+  InitialDamage: 4

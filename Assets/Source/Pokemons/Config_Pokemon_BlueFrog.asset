@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c224264039d99e4d950db9fc3844ed7, type: 3}
   m_Name: Config_Pokemon_BlueFrog
   m_EditorClassIdentifier: 
-  Pokemon: {fileID: 8861076501592709967, guid: 3a9ee9464e6d6fc41b8169c3bee71b49, type: 3}
+  Pokemon: {fileID: 3783456545637707193, guid: cea8b4889fc45524e921ba09651ead3b, type: 3}
   Type: 2
   Description: "\u042F\u0434\u043E\u0432\u0438\u0442\u0430\u044F \u043B\u044F\u0433\u0443\u0448\u043A\u0430.
     \u041F\u0440\u0438 \u0430\u0442\u0430\u043A\u0435 \u043E\u0442\u0440\u0430\u0432\u043B\u044F\u0435\u0442
     \u043F\u0440\u043E\u0442\u0438\u0432\u043D\u0438\u043A\u0430 \u043D\u0430 2 \u0445\u043E\u0434\u0430."
-  Color: {r: 0.17265925, g: 0.26998135, b: 0.9433962, a: 1}
+  Color: {r: 0.41176474, g: 0.7843138, b: 0.9960785, a: 1}
+  ColorType: 1
   Name: "\u0413\u043E\u043B\u0443\u0431\u0430\u044F \u043B\u044F\u0433\u0443\u0448\u043A\u0430
     (\u043E\u0442\u0440\u0430\u0432\u043B\u044F\u0435\u0442)"
   InitialHealth: 4
