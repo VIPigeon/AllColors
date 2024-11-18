@@ -15,8 +15,13 @@ public class DialogueWithSpawn : DialogueInteraction
     {
         base.OnInteract();
         if (_currentDialogue == DialogueLines.Length - 1)
+        {
             _whatToActivate.SetActive(true);
+        }   
         else
+            _whatToActivate.SetActive(false);
+
+        if(!InDialogue)
             _whatToActivate.SetActive(false);
     }
 }

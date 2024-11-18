@@ -21,6 +21,7 @@ public class NPCStates : Singleton<NPCStates>
 public enum CharacterID
 {
     cave_OldMan,
+    Big_Red,
     testNPC2,
     testNPC3,
 }

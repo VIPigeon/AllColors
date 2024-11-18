@@ -29,6 +29,7 @@ public enum QuestID
 {
     Squirrel,
     GetBasicDeck,
+    KillRedBoss
 }
 
 public enum QuestState
