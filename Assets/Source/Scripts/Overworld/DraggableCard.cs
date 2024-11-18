@@ -50,13 +50,15 @@ public class DraggableCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             }
         }
 
-        if(closestPaintable != null)
+        if (closestPaintable != null)
         {
             closestPaintable.ApplyCard(_card);
-            FullDeck.Instance.Cards.Remove(_card);
-            Destroy(gameObject);
+            if (_card.Type == CardType.Invalid)
+            {
+                FullDeck.Instance.Cards.Remove(_card);
+                Destroy(gameObject);
+            }
         }
-        else
-            transform.SetParent(_grid);
+        transform.SetParent(_grid);
     }
 }
