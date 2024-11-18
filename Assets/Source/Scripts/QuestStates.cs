@@ -10,7 +10,8 @@ public class QuestStates : Singleton<QuestStates>
 
     private void OnEnable()
     {
-        PlayerPositionSave = FindObjectOfType<PlayerMovement>().transform.position;
+        //PlayerPositionSave = FindObjectOfType<PlayerMovement>().transform.position;
+        //Debug.Log($"{PlayerPositionSave}");
         if (States == null)
         {
             States = new Dictionary<QuestID, QuestState>();
