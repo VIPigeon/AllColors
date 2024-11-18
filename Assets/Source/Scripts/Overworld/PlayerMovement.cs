@@ -37,6 +37,9 @@ public class PlayerMovement : MonoBehaviour
         //TODO Change velocity in FixedUpdate
         if(_canMove)
             _rigidbody.velocity = moveVector.normalized * _speed;
+        else
+            _rigidbody.velocity = Vector2.zero;
+
     }
 
     private void OnDialogueInteraction(bool state, DialogueLine dialogue)
