@@ -190,7 +190,7 @@ public class Fight : MonoBehaviour {
 
         foreach (var card in PlayerHand.Hand.Hand) {
             if (card != null && card.Config.Type == CardType.LovestruckToad) {
-                card.CurrentHealth.Value = Math.Min(card.CurrentHealth.Value + (int)1.6, card.CurrentHealth.MaxAmount);
+                card.CurrentHealth.Value = Math.Min(card.CurrentHealth.Value + (int)5, card.CurrentHealth.MaxAmount);
             }
         }
         
