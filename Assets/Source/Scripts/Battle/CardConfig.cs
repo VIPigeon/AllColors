@@ -33,7 +33,7 @@ public class ColorInfo {
         {
             ColorType.Red,
             new Dictionary<ColorType, double> {
-                {ColorType.Red, 0},
+                {ColorType.Red, 0.5},
                 {ColorType.Blue, 1.25},
                 {ColorType.Yellow, 1.25},
                 {ColorType.Purple, 1},
@@ -45,7 +45,7 @@ public class ColorInfo {
             ColorType.Blue,
             new Dictionary<ColorType, double> {
                 {ColorType.Red, 1.25},
-                {ColorType.Blue, 0},
+                {ColorType.Blue, 0.5},
                 {ColorType.Yellow, 1.25},
                 {ColorType.Purple, 1},
                 {ColorType.Green, 1},
@@ -57,7 +57,7 @@ public class ColorInfo {
             new Dictionary<ColorType, double> {
                 {ColorType.Red, 1.25},
                 {ColorType.Blue, 1.25},
-                {ColorType.Yellow, 0},
+                {ColorType.Yellow, 0.5},
                 {ColorType.Purple, 1.5},
                 {ColorType.Green, 1},
                 {ColorType.Orange, 1},
@@ -69,7 +69,7 @@ public class ColorInfo {
                 {ColorType.Red, 1},
                 {ColorType.Blue, 1},
                 {ColorType.Yellow, 1.5},
-                {ColorType.Purple, 0},
+                {ColorType.Purple, 0.5},
                 {ColorType.Green, 1.25},
                 {ColorType.Orange, 1.25},
             }
@@ -81,7 +81,7 @@ public class ColorInfo {
                 {ColorType.Blue, 1},
                 {ColorType.Yellow, 1},
                 {ColorType.Purple, 1.25},
-                {ColorType.Green, 0},
+                {ColorType.Green, 0.5},
                 {ColorType.Orange, 1.25},
             }
         },
@@ -93,7 +93,7 @@ public class ColorInfo {
                 {ColorType.Yellow, 1},
                 {ColorType.Purple, 1.25},
                 {ColorType.Green, 1.25},
-                {ColorType.Orange, 0},
+                {ColorType.Orange, 0.5},
             }
         },
     };

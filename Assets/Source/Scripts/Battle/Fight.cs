@@ -106,7 +106,11 @@ public class Fight : MonoBehaviour {
             Bonus1Text.color = Color.gray;
             Bonus1Text.text = "0";
         } else {
-            Bonus1Text.color = Color.green;
+            if (bonus1 < 1) {
+                Bonus1Text.color = Color.red;
+            } else {
+                Bonus1Text.color = Color.green;
+            }
             Bonus1Text.text = $"x{bonus1}";
         }
         
@@ -114,7 +118,11 @@ public class Fight : MonoBehaviour {
             Bonus2Text.color = Color.gray;
             Bonus2Text.text = "0";
         } else {
-            Bonus2Text.color = Color.green;
+            if (bonus2 < 1) {
+                Bonus2Text.color = Color.red;
+            } else {
+                Bonus2Text.color = Color.green;
+            }
             Bonus2Text.text = $"x{bonus2}";
         }
     }
