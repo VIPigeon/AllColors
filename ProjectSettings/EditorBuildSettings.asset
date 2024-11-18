@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Source/Scenes/Overworld.unity
-    guid: 2e18c3bfd09c1024eac27e827dbf2b2c
+    path: Assets/Source/Scenes/Main.unity
+    guid: 76a648a0a1438ea97bb6c58d34e2decc
   - enabled: 1
     path: Assets/Source/Scenes/Fight_LargeBlue.unity
     guid: f6cd8e5e77fc3d54e896c2ab9425b882

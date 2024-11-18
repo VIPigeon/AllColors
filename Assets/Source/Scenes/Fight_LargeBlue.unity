@@ -215,7 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardViews: []
   FullDeck: {fileID: 963843419}
-  CharacterID: 1
+  CharacterID: 3
 --- !u!1001 &3616265930335446399
 PrefabInstance:
   m_ObjectHideFlags: 0
