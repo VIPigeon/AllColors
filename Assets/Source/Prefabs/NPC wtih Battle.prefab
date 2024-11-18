@@ -47,6 +47,7 @@ MonoBehaviour:
   Text: "\u041F\u0440\u0438\u0432\u0435\u0442!"
   TextColor: {r: 1, g: 1, b: 1, a: 1}
   IsWobbly: 1
+  Portrait: {fileID: 0}
 --- !u!1 &349927390667537798
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +295,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 349927390441911044}
-  - {fileID: 349927391945121910}
   m_Father: {fileID: 349927391346859163}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -374,7 +374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <DialogueLines>k__BackingField:
   - {fileID: 349927390441911047}
-  - {fileID: 349927391945121905}
+  - {fileID: 0}
   _whatToActivate: {fileID: 349927391761119824}
 --- !u!1 &349927391510519419
 GameObject:
@@ -747,53 +747,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!1 &349927391945121911
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 349927391945121910}
-  - component: {fileID: 349927391945121905}
-  m_Layer: 0
-  m_Name: Line (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &349927391945121910
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 349927391945121911}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 349927391340190985}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &349927391945121905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 349927391945121911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2f547bfa4fb7f945be3e906c1188ec4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Text: "\u041D\u0430\u0447\u043D\u0435\u043C \u0431\u043E\u0439?"
-  TextColor: {r: 1, g: 0, b: 0, a: 1}
-  IsWobbly: 1
 --- !u!1 &349927392057725742
 GameObject:
   m_ObjectHideFlags: 0
