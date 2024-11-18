@@ -96,7 +96,7 @@ public class PlayerHandInBattle : MonoBehaviour {
         ShowCards();
     }
     
-    private void ShowCards() {
+    public void ShowCards() {
         OutOfCards = true;
         
         for (int i = 0; i < Hand.MaxCardsInHand; i++) {
