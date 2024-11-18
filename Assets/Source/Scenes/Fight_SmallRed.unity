@@ -229,6 +229,10 @@ PrefabInstance:
       propertyPath: Enemy
       value: 
       objectReference: {fileID: 1319862373}
+    - target: {fileID: 1274656087, guid: 3cf5b198c3ff07e4a9aaeed49f35dc5b, type: 3}
+      propertyPath: CardReward
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e0108db50da0d64c92c4401518fb139, type: 2}
     - target: {fileID: 3616265930063338177, guid: 3cf5b198c3ff07e4a9aaeed49f35dc5b, type: 3}
       propertyPath: m_Pivot.x
       value: 0

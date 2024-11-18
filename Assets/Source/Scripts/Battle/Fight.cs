@@ -14,6 +14,7 @@ public class Fight : MonoBehaviour {
     // FightArea -- parent,
     // PlayerPokemonSpawnPoint -- позиция внутри FightArea
     public GameObject FightArea;
+    public CardConfig CardReward;
     public Transform PlayerPokemonSpawnPoint;
     public Transform EnemyPokemonSpawnPoint;
 
@@ -65,13 +66,14 @@ public class Fight : MonoBehaviour {
         
         if ((PlayerPokemon == null || PlayerPokemon.Card.CurrentHealth.IsZero) && PlayerHand.OutOfCards) {
             Debug.Log("Игрок проиграл ахахах");
-            SceneManager.LoadScene("Overworld");
+            SceneManager.LoadScene("Main");
         }
         
         if (EnemyPokemon.Card.CurrentHealth.IsZero) {        
             Debug.Log($"Враг {Enemy.CharacterID} проиграл. Круто?");
             Singleton<NPCStates>.Instance.States[Enemy.CharacterID] = CharacterState.Defeated;
-            SceneManager.LoadScene("Overworld");
+            Singleton<FullDeck>.Instance.Cards.Add(CardReward);
+            SceneManager.LoadScene("Main");
         }
         
         if (EnemyPokemon == null || EnemyPokemon.Card.CurrentHealth.IsZero) {
