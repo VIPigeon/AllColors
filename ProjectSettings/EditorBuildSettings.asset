@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Source/Scenes/Fight_SmallYellow.unity
     guid: 836f62d0066fcc746a2d6fc32478524f
+  - enabled: 1
+    path: Assets/Source/Scenes/Ending.unity
+    guid: cab866aa16952d142a12f59ded420f0a
   m_configObjects: {}
