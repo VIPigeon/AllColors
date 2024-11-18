@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 424d5e284937de54dbda2f3627fb21f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ids: 01000000
+  _ids: 0100000002000000
   _endingSceneName: Ending
 --- !u!1 &124256427
 GameObject:
