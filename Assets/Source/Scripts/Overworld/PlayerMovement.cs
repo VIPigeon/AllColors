@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log($"{QuestStates.Instance.PlayerPositionSave}");
         transform.position = QuestStates.Instance.PlayerPositionSave;
     }
 

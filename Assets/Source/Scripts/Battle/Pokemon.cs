@@ -84,10 +84,6 @@ public class Pokemon : MonoBehaviour {
         }
         UpdateEffects();
         
-        if (damage <= 0) {
-            return;
-        }
-        
         Card.CurrentHealth.Sub(damage);
         HealthView.Show(Card.CurrentHealth);
         Animator.Play("Damaged");
