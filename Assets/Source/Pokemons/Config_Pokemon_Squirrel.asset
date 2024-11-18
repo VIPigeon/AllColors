@@ -16,7 +16,7 @@ MonoBehaviour:
   Type: 4
   Description: "\u041C\u0430\u043B\u043E \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F,
     \u0441\u0438\u043B\u044C\u043D\u0430\u044F \u0430\u0442\u0430\u043A\u0430"
-  Color: {r: 0.91372555, g: 0.69803923, b: 0.3019608, a: 1}
+  Color: {r: 0.6666667, g: 0.34901962, b: 0.0627451, a: 1}
   ColorType: 5
   Name: "\u0411\u0435\u043B\u043A\u0430"
   InitialHealth: 2
