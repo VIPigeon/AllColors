@@ -22,8 +22,7 @@ public enum CharacterID
 {
     cave_OldMan,
     Big_Red,
-    testNPC2,
-    testNPC3,
+    Blue_Small1,
 }
 
 public enum CharacterState
