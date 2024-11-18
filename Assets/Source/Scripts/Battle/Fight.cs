@@ -195,6 +195,7 @@ public class Fight : MonoBehaviour {
                 card.CurrentHealth.Value = Math.Min(card.CurrentHealth.Value + (int)5, card.CurrentHealth.MaxAmount);
             }
         }
+        PlayerHand.ShowCards();
         
         if (PlayerPokemon != null) {
             PlayerPokemon.BeginTurn();
