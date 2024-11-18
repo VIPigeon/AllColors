@@ -34264,6 +34264,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 6
   _interaction: {fileID: 1212258111}
+  _sprite: {fileID: 462785582}
+  _spriteUp: {fileID: 377813699, guid: edc06602a9a73c4cd9bdaec52b0c4a39, type: 3}
+  _spriteDown: {fileID: 2115672694, guid: edc06602a9a73c4cd9bdaec52b0c4a39, type: 3}
+  _spriteRight: {fileID: -763722340, guid: edc06602a9a73c4cd9bdaec52b0c4a39, type: 3}
+  _spriteLeft: {fileID: -506803265, guid: edc06602a9a73c4cd9bdaec52b0c4a39, type: 3}
 --- !u!114 &1212258111
 MonoBehaviour:
   m_ObjectHideFlags: 0

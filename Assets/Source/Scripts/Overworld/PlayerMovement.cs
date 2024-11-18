@@ -7,6 +7,12 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private PlayerInteraction _interaction;
+    [SerializeField] private SpriteRenderer _sprite;
+    [SerializeField] private Sprite _spriteUp;
+    [SerializeField] private Sprite _spriteDown;
+    [SerializeField] private Sprite _spriteRight;
+    [SerializeField] private Sprite _spriteLeft;
+
     private Rigidbody2D _rigidbody;
     private bool _canMove = true;
 
@@ -39,6 +45,16 @@ public class PlayerMovement : MonoBehaviour
             _rigidbody.velocity = moveVector.normalized * _speed;
         else
             _rigidbody.velocity = Vector2.zero;
+
+        if (moveVector.y > 0)
+            _sprite.sprite = _spriteUp;
+        else
+            _sprite.sprite = _spriteDown;
+
+        if (moveVector.x > 0)
+            _sprite.sprite = _spriteRight;
+        else if (moveVector.x < 0)
+            _sprite.sprite = _spriteLeft;
 
     }
 
