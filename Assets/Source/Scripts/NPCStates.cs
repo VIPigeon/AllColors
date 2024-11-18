@@ -23,6 +23,10 @@ public enum CharacterID
     cave_OldMan,
     Big_Red,
     Blue_Small1,
+    Big_Blue,
+    Big_Yellow,
+    Small_Yellow,
+    Small_Red
 }
 
 public enum CharacterState
