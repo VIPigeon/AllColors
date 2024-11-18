@@ -94389,9 +94389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2f547bfa4fb7f945be3e906c1188ec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: "\u0422\u043E\u043B\u044C\u043A\u043E \u0432 \u0420\u043E\u0441\u0441\u0438\u0438
-    \u0430\u0441\u0444\u0430\u043B\u044C\u0442 \u043E\u0431\u044A\u0435\u0437\u0436\u0430\u044E\u0442
-    \u043F\u043E \u043E\u0431\u043E\u0447\u0438\u043D\u0435..."
+  Text: "\u0410 \u0447\u0442\u043E \u0434\u0435\u043B\u0430\u0442\u044C? \u0410 \u0432\u044B
+    \u043A\u0430\u043A \u0434\u0443\u043C\u0430\u0435\u0442\u0435?"
   TextColor: {r: 0.6117647, g: 0.16862746, b: 0.8705883, a: 1}
   IsWobbly: 0
   Portrait: {fileID: 21300000, guid: a2cdf3d8be9feda45bd6ba56f7d5c1eb, type: 3}
