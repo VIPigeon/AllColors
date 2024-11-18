@@ -26,6 +26,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        transform.position = QuestStates.Instance.PlayerPositionSave;
+    }
+
     private void OnMovementInput(Vector2 moveVector)
     {
         //TODO Change velocity in FixedUpdate
